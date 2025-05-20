@@ -1,0 +1,124 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.mainSection {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+    flex-wrap: wrap;
+
+    @include screen(tablet) {
+        position: relative;
+    }
+
+    @include screen(mobile) {
+        width: 100%;
+    }
+}
+
+.mainHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    @include screen(mobile) {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+.navCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    img {
+        width: auto;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        outline: 4px solid rgba(255, 255, 255, 0.2);
+        outline-offset: -4px;
+        transition: all 0.3s ease;
+    }
+
+    &.voting {
+        img {
+            background-color: $full-violet;
+        }
+    }
+
+    &.breeds {
+        img {
+            background-color: $full-green;
+        }
+    }
+
+    &.gallery {
+        img {
+            background-color: $full-yellow;
+        }
+    }
+
+    .label {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        color: $full-pink;
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    &:hover {
+        img {
+        outline: 0px solid rgba(255, 255, 255, 0.2);
+        outline-offset: 0px;
+        }
+        .label {
+        background-color: $light-pink;
+        }
+    }
+
+    &.current {
+
+        img {
+            outline: 4px solid $light-pink;
+            outline-offset: -4px;
+        }
+
+        .label {
+        background-color: $full-pink;
+        color: white;
+        }
+    }
+
+    @include screen(mobile) {
+        img {
+            display: none;
+        }
+    }
+}

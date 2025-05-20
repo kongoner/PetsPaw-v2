@@ -1,0 +1,73 @@
+@use '../../styles/variables' as *;
+
+// Theme toggle
+.themeToggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.toggleLabel {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    background-color: #fddede;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggleThumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 16px;
+    height: 16px;
+    background-color: $full-pink;
+    border-radius: 100%;
+    transition: transform 0.3s;
+    z-index: 1;
+}
+
+// Icons eye-open, eye-close
+.icon {
+    position: absolute;
+    padding: 4px;
+    border-radius: 100%;
+    transition: opacity 0.3s;
+}
+
+.eyeOpen {
+    left: -32px;
+    opacity: 1;
+    background-color: white;
+}
+
+.eyeClosed {
+    left: -32px;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+// Active state
+input[type='checkbox'] {
+    display: none;
+
+    &:checked + .toggleLabel {
+        background-color: rgba(255, 134, 142, 0.2);
+
+        .toggleThumb {
+            transform: translateX(20px);
+        }
+
+        .eyeOpen {
+            opacity: 0;
+        }
+
+        .eyeClosed {
+            opacity: 1;
+        }
+    }
+}

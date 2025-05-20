@@ -1,0 +1,324 @@
+@use './variables' as *;
+
+// Dark styles 
+body[data-theme='dark'] {
+    background-color: $dark-gray;
+    color: white;
+
+    // Main section
+
+    .nav-card {
+        img {
+            outline: 4px solid rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .label {
+            background-color: $transparent-white-bg;
+            transition: all 0.3s ease;
+        }
+
+        &:hover {
+            img {
+            outline: 0px solid rgba(0, 0, 0, 0.2);
+            outline-offset: -4px;
+            }
+            .label {
+            background-color: $light-pink;
+            }
+        }
+
+        &.current {
+
+            img {
+                outline: 4px solid $full-pink;
+            }
+
+            .label {
+            background-color: $full-pink;
+            color: white;
+            }
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////
+
+    // Toolbar
+
+    .search-bar-wrapper {
+        background-color: $transparent-white-bg;
+    }
+
+    .search-bar {
+        &:hover {
+            outline: 2px solid $transparent-pink;
+        }
+
+        &:focus {
+            outline: 2px solid $full-pink;
+            color: white;
+        }
+    }
+
+    .search-button {
+        background-color: $transparent-pink;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $full-pink;
+
+            img {
+                filter: brightness(10);
+            }
+        }
+    }
+
+    .link-saved {
+        background-color: $transparent-white-bg;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $transparent-pink;
+        }
+
+        &.current {
+            background-color: $full-pink;
+
+            img {
+                filter: brightness(10);
+            }
+        }
+    }
+
+    .btn-home {
+        background-color: $transparent-white-bg;
+
+        &:hover {
+            background-color: $transparent-pink;
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////
+
+    // Breadcrumbs
+
+    .btn-back {
+        background-color: $transparent-pink;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $full-pink;
+
+            img {
+                filter: brightness(10);
+            }
+        }
+    }
+
+    .breadcrumbs-item {
+        color: $full-pink;
+        background-color: $transparent-pink;
+
+        &.current {
+            background-color: $full-pink;
+            color: white;
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////
+
+    // Voting page
+
+    .voting-page {
+        background-color: $transparent-white-bg;
+    }
+
+    .voting-buttons-container {
+        background-color: #282828;
+        outline: 4px solid #282828;
+    }
+
+    .user-action {
+        background-color: $transparent-white-bg;
+    }
+
+    .timestamp {
+        background-color: $dark-gray;
+    }
+
+    /////////////////////////////////////////////////////////////////
+
+    // Breeds page
+
+    .breeds-page {
+        background-color: $transparent-white-bg;
+    }
+
+    .dropdown {
+        background-color: $transparent-white-bg;
+
+        &:hover {
+            outline: 2px solid $transparent-pink;
+        }
+
+        &:focus {
+            outline: 2px solid $full-pink;
+        }
+    }
+
+    .order {
+        background-color: $transparent-white-bg;
+
+        &:hover,
+        &.active {
+            outline: 2px solid $transparent-pink;
+        }
+    }
+
+    .breed-name {
+        background-color: $dark-gray;
+    }
+
+    .page-button {
+        background-color: $transparent-pink;
+
+        &:hover {
+            background-color: $full-pink;
+            color: white;
+        }
+
+        &.disabled {
+            background-color: $transparent-white-bg;
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////
+
+    // Breeds Info page
+
+    .breed-description {
+        outline: 2px solid $transparent-pink;
+    }
+
+    .breed-title {
+        background-color: #282828;
+    }
+
+    /////////////////////////////////////////////////////////////////
+
+    // Gallery page
+
+    .gallery-page {
+        background-color: $transparent-white-bg;
+    }
+    .btn-upload {
+        background-color: $transparent-pink;
+    }
+
+    .filters-gallery {
+        background-color: $transparent-white-bg;
+    }
+
+    .dropdown-light {
+        background-color: $dark-gray;
+    }
+
+    .btn-reload {
+        background-color: $dark-gray;
+
+        &:hover {
+            background-color: $transparent-pink;
+        }
+    }
+
+    .btn-gallery-fav {
+        background-color: $dark-gray;
+
+        &:hover {
+            background-color: $full-pink;
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////
+
+    // Upload page
+
+    .upload-popup {
+        background-color: #282828;
+    }
+
+    .btn-close {
+        background-color: $transparent-white-bg;
+
+        &:hover {
+            background-color: $transparent-pink;
+        }
+    }
+
+    .upload-area {
+        border: 2px dashed $transparent-pink;
+        background-color: $transparent-white-bg;
+
+        &.active {
+            background-color: $transparent-pink;
+            border: 2px dashed $full-pink;
+        }
+
+        &.error-area {
+            background-color: $transparent-pink;
+            border: 2px dashed $full-pink;
+        }
+    }
+
+    .btn-upload-file {
+
+        &:hover {
+            background-color: $transparent-pink;
+            color: $full-pink;
+        }
+
+        &.disabled {
+            background-color: $transparent-white-bg;
+            color: $full-gray;
+        }
+    }
+
+    .upload-message {
+        background-color: $transparent-white-bg;
+    }
+
+    /////////////////////////////////////////////////////////////////
+
+    // Search result page
+
+    .search-result-page {
+        background-color: $transparent-white-bg;
+    }
+
+    .nothing-found-message {
+        background-color: $transparent-white-bg;
+    }
+
+    .subtitle {
+        &.bold {
+            color: white;
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////
+
+    // Likes, favourites and dislikes pages
+
+    .likes-page {
+        background-color: $transparent-white-bg;
+    }
+
+    .favourites-page {
+        background-color: $transparent-white-bg;
+    }
+
+    .dislikes-page {
+        background-color: $transparent-white-bg;
+    }
+
+}
