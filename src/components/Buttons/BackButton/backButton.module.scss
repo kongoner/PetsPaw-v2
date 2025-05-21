@@ -1,0 +1,38 @@
+@use '../../../styles/variables' as *;
+
+.backButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: $light-pink;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $full-pink;
+
+        img {
+            filter: brightness(10);
+        }
+    }
+}
+
+// Dark Theme
+:global(body[data-theme='dark']) {
+  .backButton {
+        background-color: $transparent-pink;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $full-pink;
+
+            img {
+                filter: brightness(10);
+            }
+        }
+    }
+}

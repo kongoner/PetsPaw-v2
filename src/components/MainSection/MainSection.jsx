@@ -1,13 +1,15 @@
 import ThemeToggle from '../Checkbox/ThemeToggle';
-import styles from './MainSection.module.scss';
+import NavigationCard from '../NavigationCard/NavigationCard';
+import styles from './mainSection.module.scss';
+import { Link } from 'react-router-dom';
 
 export default function MainSection() {
   return (
     <div className={styles.mainSection}>
       <div className={styles.mainHeader}>
-        <a href="/" className={styles.logo} data-link>
+        <Link to='/' className={styles.logo} data-link>
           <img id="logo" src="src/images/logo.svg" alt="PetsPaw Logo" />
-        </a>
+        </Link>
         <ThemeToggle />
       </div>
 
@@ -17,32 +19,24 @@ export default function MainSection() {
       </div>
 
       <nav className={styles.navigation}>
-        <a href="voting" className={`${styles.navCard} ${styles.voting}`} data-link>
-          <img
-            src="src/images/vote-table@1x.webp"
-            srcSet="src/images/vote-table@2x.webp 2x"
-            alt="Voting"
-          />
-          <span className={styles.label}>VOTING</span>
-        </a>
-
-        <a href="breeds" className={`${styles.navCard} ${styles.breeds}`} data-link>
-          <img
-            src="src/images/pet-breeds@1x.webp"
-            srcSet="src/images/pet-breeds@2x.webp 2x"
-            alt="Breeds"
-          />
-          <span className={styles.label}>BREEDS</span>
-        </a>
-
-        <a href="gallery" className={`${styles.navCard} ${styles.gallery}`} data-link>
-          <img
-            src="src/images/images-search@1x.webp"
-            srcSet="src/images/images-search@2x.webp 2x"
-            alt="Gallery"
-          />
-          <span className={styles.label}>GALLERY</span>
-        </a>
+        <NavigationCard
+            toPath='/voting'
+            name="Voting"
+            imageUrl="src/images/vote-table"
+            className={styles.voting}
+        />
+        <NavigationCard
+            toPath='/breeds'
+            name="Breeds"
+            imageUrl="src/images/pet-breeds"
+            className={styles.breeds}
+        />
+        <NavigationCard
+            toPath='/gallery'
+            name="Gallery"
+            imageUrl="src/images/images-search"
+            className={styles.gallery}
+        />
       </nav>
     </div>
   );

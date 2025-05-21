@@ -1,0 +1,44 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.linkButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: white;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: $light-pink;
+    }
+
+    &.active {
+        background-color: $full-pink;
+
+        img {
+            filter: brightness(10);
+        }
+    }
+}
+
+// Dark Theme
+:global(body[data-theme='dark']) {
+    .linkButton {
+        background-color: $transparent-white-bg;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: $transparent-pink;
+        }
+
+        &.active {
+            background-color: $full-pink;
+
+            img {
+                filter: brightness(10);
+            }
+        }
+    }
+}

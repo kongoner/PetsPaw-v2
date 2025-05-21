@@ -14,10 +14,10 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/pets-paw.git
+git clone https://github.com/[your-username]/PetsPaw-v2.git
 
 # Navigate to the project folder
-cd pets-paw
+cd PetsPaw-v2
 
 # Install dependencies
 npm install

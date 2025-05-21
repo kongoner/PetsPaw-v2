@@ -1,13 +1,12 @@
-import './styles/index.scss';
-import MainSection from './components/MainSection/MainSection.jsx';
+import { BrowserRouter } from 'react-router-dom';
+import Layout from './components/Layout';
 
 function App() {
-
   return (
-    <div className='container'>
-      <MainSection />
-    </div>
-  )
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

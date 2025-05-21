@@ -7,138 +7,20 @@ body[data-theme='dark'] {
 
     // Main section
 
-    .nav-card {
-        img {
-            outline: 4px solid rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .label {
-            background-color: $transparent-white-bg;
-            transition: all 0.3s ease;
-        }
-
-        &:hover {
-            img {
-            outline: 0px solid rgba(0, 0, 0, 0.2);
-            outline-offset: -4px;
-            }
-            .label {
-            background-color: $light-pink;
-            }
-        }
-
-        &.current {
-
-            img {
-                outline: 4px solid $full-pink;
-            }
-
-            .label {
-            background-color: $full-pink;
-            color: white;
-            }
-        }
-    }
-
-    /////////////////////////////////////////////////////////////////
-
-    // Toolbar
-
-    .search-bar-wrapper {
-        background-color: $transparent-white-bg;
-    }
-
-    .search-bar {
-        &:hover {
-            outline: 2px solid $transparent-pink;
-        }
-
-        &:focus {
-            outline: 2px solid $full-pink;
-            color: white;
-        }
-    }
-
-    .search-button {
-        background-color: $transparent-pink;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background-color: $full-pink;
-
-            img {
-                filter: brightness(10);
-            }
-        }
-    }
-
-    .link-saved {
-        background-color: $transparent-white-bg;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background-color: $transparent-pink;
-        }
-
-        &.current {
-            background-color: $full-pink;
-
-            img {
-                filter: brightness(10);
-            }
-        }
-    }
-
-    .btn-home {
-        background-color: $transparent-white-bg;
-
-        &:hover {
-            background-color: $transparent-pink;
-        }
-    }
-
-    /////////////////////////////////////////////////////////////////
-
-    // Breadcrumbs
-
-    .btn-back {
-        background-color: $transparent-pink;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background-color: $full-pink;
-
-            img {
-                filter: brightness(10);
-            }
-        }
-    }
-
-    .breadcrumbs-item {
-        color: $full-pink;
-        background-color: $transparent-pink;
-
-        &.current {
-            background-color: $full-pink;
-            color: white;
-        }
+    #logo {
+            content: url('/src/images/logo-light.svg');
     }
 
     /////////////////////////////////////////////////////////////////
 
     // Voting page
 
-    .voting-page {
-        background-color: $transparent-white-bg;
-    }
-
-    .voting-buttons-container {
+    .votingButtonsContainer {
         background-color: #282828;
         outline: 4px solid #282828;
     }
 
-    .user-action {
+    .userAction {
         background-color: $transparent-white-bg;
     }
 
@@ -149,10 +31,6 @@ body[data-theme='dark'] {
     /////////////////////////////////////////////////////////////////
 
     // Breeds page
-
-    .breeds-page {
-        background-color: $transparent-white-bg;
-    }
 
     .dropdown {
         background-color: $transparent-white-bg;
@@ -179,7 +57,7 @@ body[data-theme='dark'] {
         background-color: $dark-gray;
     }
 
-    .page-button {
+    .pageButton {
         background-color: $transparent-pink;
 
         &:hover {
@@ -196,11 +74,11 @@ body[data-theme='dark'] {
 
     // Breeds Info page
 
-    .breed-description {
+    .breedDescription {
         outline: 2px solid $transparent-pink;
     }
 
-    .breed-title {
+    .breedTitle {
         background-color: #282828;
     }
 
@@ -208,22 +86,19 @@ body[data-theme='dark'] {
 
     // Gallery page
 
-    .gallery-page {
-        background-color: $transparent-white-bg;
-    }
-    .btn-upload {
+    .uploadButton {
         background-color: $transparent-pink;
     }
 
-    .filters-gallery {
+    .filtersGallery {
         background-color: $transparent-white-bg;
     }
 
-    .dropdown-light {
+    .dropdownLight {
         background-color: $dark-gray;
     }
 
-    .btn-reload {
+    .buttonReload {
         background-color: $dark-gray;
 
         &:hover {
@@ -231,7 +106,7 @@ body[data-theme='dark'] {
         }
     }
 
-    .btn-gallery-fav {
+    .buttonAddFavorites {
         background-color: $dark-gray;
 
         &:hover {
@@ -243,11 +118,11 @@ body[data-theme='dark'] {
 
     // Upload page
 
-    .upload-popup {
+    .uploadPopup {
         background-color: #282828;
     }
 
-    .btn-close {
+    .closeButton {
         background-color: $transparent-white-bg;
 
         &:hover {
@@ -255,7 +130,7 @@ body[data-theme='dark'] {
         }
     }
 
-    .upload-area {
+    .uploadArea {
         border: 2px dashed $transparent-pink;
         background-color: $transparent-white-bg;
 
@@ -264,13 +139,13 @@ body[data-theme='dark'] {
             border: 2px dashed $full-pink;
         }
 
-        &.error-area {
+        &.errorArea {
             background-color: $transparent-pink;
             border: 2px dashed $full-pink;
         }
     }
 
-    .btn-upload-file {
+    .uploadFileButton {
 
         &:hover {
             background-color: $transparent-pink;
@@ -283,7 +158,7 @@ body[data-theme='dark'] {
         }
     }
 
-    .upload-message {
+    .uploadMessage {
         background-color: $transparent-white-bg;
     }
 
@@ -291,11 +166,7 @@ body[data-theme='dark'] {
 
     // Search result page
 
-    .search-result-page {
-        background-color: $transparent-white-bg;
-    }
-
-    .nothing-found-message {
+    .nothingFoundMessage {
         background-color: $transparent-white-bg;
     }
 
@@ -304,21 +175,4 @@ body[data-theme='dark'] {
             color: white;
         }
     }
-
-    /////////////////////////////////////////////////////////////////
-
-    // Likes, favourites and dislikes pages
-
-    .likes-page {
-        background-color: $transparent-white-bg;
-    }
-
-    .favourites-page {
-        background-color: $transparent-white-bg;
-    }
-
-    .dislikes-page {
-        background-color: $transparent-white-bg;
-    }
-
 }

@@ -1,0 +1,61 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.searchBarWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    background-color: white;
+    border-radius: 20px;
+    min-width: 250px;
+
+    @include screen(tablet) {
+        order: 5;
+    }
+    
+    @include screen(mobile) {
+        order: 5;
+    }
+}
+
+.searchBar {
+    width: 100%;
+    height: 100%;
+    padding: 15px 10px 15px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: 400;
+    color: $full-gray;
+    outline: 2px solid transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+        outline: 2px solid $light-pink;
+    }
+
+    &:focus {
+        outline: 2px solid $full-pink;
+        color: black;
+    }
+}
+
+// Dark Theme
+:global(body[data-theme='dark']) {
+    .searchBarWrapper {
+        background-color: $transparent-white-bg;
+    }
+
+    .searchBar {
+        &:hover {
+            outline: 2px solid $transparent-pink;
+        }
+
+        &:focus {
+            outline: 2px solid $full-pink;
+            color: white;
+        }
+    }
+}
