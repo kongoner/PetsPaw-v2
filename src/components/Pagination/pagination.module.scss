@@ -1,0 +1,63 @@
+@use '../../styles/variables' as *;
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.paginationButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background-color: $light-pink;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $full-pink;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: $full-pink;
+        color: white;
+
+        img {
+            filter: brightness(10);
+        }
+    }
+
+    &.disabled {
+        background-color: $light-gray;
+        color: $full-gray;
+        cursor: not-allowed;
+        pointer-events: none;
+
+        img {
+            filter: grayscale(100%);
+        }
+    }
+}
+
+// Dark Theme
+:global(body[data-theme='dark']) {
+    .paginationButton {
+        background-color: $transparent-pink;
+
+        &:hover {
+            background-color: $full-pink;
+            color: white;
+        }
+
+        &.disabled {
+            background-color: $transparent-white-bg;
+        }
+    }
+}

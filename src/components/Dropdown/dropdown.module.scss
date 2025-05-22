@@ -1,0 +1,48 @@
+@use '../../styles/variables' as *;
+
+.dropdownWrapper {
+    flex: 1;
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+}
+
+.dropdown {
+    width: 100%;
+    background-color: $light-gray;
+    border-radius: 10px;
+    padding: 8px 10px;
+    color: $full-gray;
+    outline: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        outline: 2px solid $light-pink;
+    }
+
+    &:focus {
+        outline: 2px solid $full-pink;
+    }
+}
+
+// Dark theme
+:global(body[data-theme='dark']) {
+    .dropdown {
+        background-color: $transparent-white-bg;
+
+        &:hover {
+            outline: 2px solid $transparent-pink;
+        }
+
+        &:focus {
+            outline: 2px solid $full-pink;
+        }
+    }
+}

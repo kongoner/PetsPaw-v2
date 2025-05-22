@@ -1,8 +1,8 @@
 import styles from './themeToggle.module.scss';
-import useTheme from '../../hooks/useTheme';
+import useThemeControl from '../../hooks/useThemeControl';
 
 export default function ThemeToggle() {
-  const [isDarkMode, toggleTheme] = useTheme();
+  const [isDarkMode, toggleTheme] = useThemeControl();
 
   return (
       <div className={styles.themeToggle}>

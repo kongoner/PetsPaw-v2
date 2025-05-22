@@ -1,0 +1,44 @@
+@use '../../styles/variables' as *;
+
+.order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: $light-gray;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: 2px solid transparent;
+    transition: all 0.3s ease;
+
+    img {
+        filter: grayscale(100%);
+        transition: all 0.3s ease;
+    }
+
+    &:hover,
+    &.active {
+        outline: 2px solid $light-pink;
+
+        img {
+            filter: grayscale(0%);
+        }
+    }
+}
+
+.orderWrapper {
+    display: flex;
+    gap: 10px;
+}
+
+// Dark theme
+:global(body[data-theme='dark']) {
+    .order {
+        background-color: $transparent-white-bg;
+
+        &:hover,
+        &.active {
+            outline: 2px solid $transparent-pink;
+        }
+    }
+}

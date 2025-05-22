@@ -9,10 +9,6 @@
     background-color: white;
     border-radius: 20px;
     min-width: 250px;
-
-    @include screen(tablet) {
-        order: 5;
-    }
     
     @include screen(mobile) {
         order: 5;

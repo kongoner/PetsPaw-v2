@@ -1,31 +1,24 @@
 import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import useThemeListener from '../hooks/useThemeListener';
 import MainSection from './MainSection/MainSection';
 import Toolbar from './Toolbar/Toolbar';
 import PageRoutes from './PageRoutes';
 import './layout.scss'; 
 
 export default function Layout() {
+  // Detect if current page is Home
   const { pathname } = useLocation();
   const isHome = pathname === '/';
 
-  const [isDark, setIsDark] = useState(false);
+  // Use custom hook for theme detection
+  const isDarkMode = useThemeListener();
 
-  useEffect(() => {
-    const updateTheme = () => {
-      setIsDark(document.body.getAttribute('data-theme') === 'dark');
-    };
+  // Determine hero image source based on theme
+  // These images are used for the hero section on the home page
+  const hero1x = isDarkMode ? 'src/images/girl-and-pet-light@1x.webp' : 'src/images/girl-and-pet@1x.webp';
+  const hero2x = isDarkMode ? 'src/images/girl-and-pet-light@2x.webp' : 'src/images/girl-and-pet@2x.webp';
 
-    updateTheme();
-    const observer = new MutationObserver(updateTheme);
-    observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const hero1x = isDark ? 'src/images/girl-and-pet-light@1x.webp' : 'src/images/girl-and-pet@1x.webp';
-  const hero2x = isDark ? 'src/images/girl-and-pet-light@2x.webp' : 'src/images/girl-and-pet@2x.webp';
-
+  // Layout container with conditional content
   return (
     <section className="container">
       <div className={`contentLeft ${!isHome ? 'hideOnTablet' : ''}`}>

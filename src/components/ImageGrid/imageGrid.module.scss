@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.gridWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+// Parent grid
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(140px, auto);
+    gap: 20px;
+
+    @include screen(mobile) {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

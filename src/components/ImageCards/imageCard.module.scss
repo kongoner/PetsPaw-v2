@@ -1,0 +1,146 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+
+// Basic card
+.basicCard {
+    display: flex;
+    flex-direction: column-reverse;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px;
+    background-image: url("src/images/candidate.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    // Grid Items Positioning
+    &:nth-child(10n + 1) {
+        grid-row-start: span 2;
+    }
+    &:nth-child(10n + 4) {
+        grid-column-start: span 2;
+        grid-row-start: span 2;
+    }
+    &:nth-child(10n + 8) {
+        grid-row-start: span 2;
+    }
+    &:nth-child(10n + 9) {
+        grid-column-start: span 2;
+        grid-row-start: span 2;
+    }
+
+    @include screen(mobile) {
+        height: 200px;
+    }
+}
+
+// Breed card
+.breedCard {
+    display: flex;
+    flex-direction: column-reverse;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px;
+    background-image: url("src/images/candidate.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: inset 0px 0px 200px 100px rgba(255, 134, 142, 0.0); // Color overlay (box-shadow for the smooth transition)
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    .breedLabel {
+        opacity: 0%;
+        text-align: center;
+        width: 100%;
+        color: $full-pink;
+        border-radius: 10px;
+        background-color: white;
+        padding: 5px;
+        transition: all 0.3s ease;
+    }
+
+    &:hover {
+        box-shadow: inset 0px 0px 200px 100px rgba(255, 134, 142, 0.6); // Color overlay (box-shadow for the smooth transition)
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        .breedLabel {
+            opacity: 100%;
+        }
+    }
+
+    // Grid Items Positioning
+    &:nth-child(10n + 1) {
+        grid-row-start: span 2;
+    }
+    &:nth-child(10n + 4) {
+        grid-column-start: span 2;
+        grid-row-start: span 2;
+    }
+    &:nth-child(10n + 8) {
+        grid-row-start: span 2;
+    }
+    &:nth-child(10n + 9) {
+        grid-column-start: span 2;
+        grid-row-start: span 2;
+    }
+
+    @include screen(mobile) {
+        height: 200px;
+    }
+}
+
+// Gallery & Favourites card
+.galleryFavouritesCard {
+    display: flex;
+    flex-direction: column-reverse;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px;
+    background-image: url("src/images/candidate.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 0px 200px 100px rgba(255, 134, 142, 0.0); // Color overlay (box-shadow for the smooth transition)
+    transition: all 0.3s ease;
+
+    .favToggle {
+        opacity: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        img {
+            transition: all 0.3s ease;
+        }
+
+        &:hover {
+            background-color: $full-pink;
+
+            img {
+                filter: brightness(10);
+            }
+        }
+    }
+
+    &:hover {
+        box-shadow: inset 0px 0px 200px 100px rgba(255, 134, 142, 0.6); // Color overlay (box-shadow for the smooth transition)
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        .favToggle {
+            opacity: 100%;
+        }
+    }
+}
