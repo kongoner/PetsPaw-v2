@@ -1,4 +1,4 @@
-import ThemeToggle from '../Checkbox/ThemeToggle';
+import ThemeToggle from '../Toggles/ThemeToggle';
 import NavigationCard from '../NavigationCard/NavigationCard';
 import styles from './mainSection.module.scss';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ export default function MainSection() {
     <div className={styles.mainSection}>
       <div className={styles.mainHeader}>
         <Link to='/' className={styles.logo} data-link>
-          <img id="logo" src="src/images/logo.svg" alt="PetsPaw Logo" />
+          <img id="logo" src="/images/logo.svg" alt="PetsPaw Logo" />
         </Link>
         <ThemeToggle />
       </div>
@@ -22,19 +22,19 @@ export default function MainSection() {
         <NavigationCard
             toPath='/voting'
             name="Voting"
-            imageUrl="src/images/vote-table"
+            imageUrl="/images/vote-table"
             className={styles.voting}
         />
         <NavigationCard
             toPath='/breeds'
             name="Breeds"
-            imageUrl="src/images/pet-breeds"
+            imageUrl="/images/pet-breeds"
             className={styles.breeds}
         />
         <NavigationCard
             toPath='/gallery'
             name="Gallery"
-            imageUrl="src/images/images-search"
+            imageUrl="/images/images-search"
             className={styles.gallery}
         />
       </nav>

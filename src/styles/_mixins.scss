@@ -4,6 +4,6 @@
     @media (max-width: 834px) { @content };
   }
   @if $breakpoint == mobile {
-    @media (max-width: 402px) { @content };
+    @media (max-width: 430px) { @content };
   }
 }

@@ -1,12 +1,6 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.gridWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-
 // Parent grid
 .imageGrid {
     display: grid;

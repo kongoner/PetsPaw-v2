@@ -30,6 +30,11 @@
     color: $full-gray;
 }
 
+.idHighlighted {
+    font-weight: 500;
+    color: black;
+}
+
 // Dark Theme
 :global(body[data-theme='dark']) {
     .userAction {
@@ -38,5 +43,9 @@
 
     .timestamp {
         background-color: $dark-gray;
+    }
+
+    .idHighlighted {
+        color: white;
     }
 }

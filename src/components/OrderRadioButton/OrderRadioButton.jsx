@@ -1,37 +1,30 @@
-import { useState } from 'react';
 import styles from './orderRadioButton.module.scss';
 
-export default function OrderRadioButton({ onChange }) {
-  const [selected, setSelected] = useState('ASC');
-
-  const handleChange = (e) => {
-    setSelected(e.target.value);
-    if (onChange) onChange(e.target.value);
-  };
+export default function OrderRadioButton({ value, onChange, disabled }) {
 
   return (
     <div className={styles.orderWrapper} role="radiogroup" aria-label="Sort order">
-      <label className={`${styles.order} ${selected === 'ASC' ? styles.active : ''}`}>
+      <label className={`${styles.order} ${value === 'ASC' ? styles.active : ''} ${disabled ? styles.disabled : ''}`}>
         <input
           type="radio"
           name="order"
           value="ASC"
-          checked={selected === 'ASC'}
-          onChange={handleChange}
+          onChange={onChange}
           hidden
+          disabled={disabled}
         />
-        <img src="src/images/sort-revert-color-20.svg" alt="Sort Ascending" />
+        <img src="/images/sort-revert-color-20.svg" alt="Sort Ascending" />
       </label>
-      <label className={`${styles.order} ${selected === 'DESC' ? styles.active : ''}`}>
+      <label className={`${styles.order} ${value === 'DESC' ? styles.active : ''} ${disabled ? styles.disabled : ''}`}>
         <input
           type="radio"
           name="order"
           value="DESC"
-          checked={selected === 'DESC'}
-          onChange={handleChange}
+          onChange={onChange}
           hidden
+          disabled={disabled}
         />
-        <img src="src/images/sort-color-20.svg" alt="Sort Descending" />
+        <img src="/images/sort-color-20.svg" alt="Sort Descending" />
       </label>
     </div>
   );

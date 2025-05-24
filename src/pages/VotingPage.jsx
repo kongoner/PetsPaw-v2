@@ -5,17 +5,22 @@ import VoteButtons from '../components/Buttons/VoteButtons/VoteButtons';
 import { getRandomImageForVoting, voteForImage } from '../api/voting';
 import { getUserVotes } from '../api/logs';
 import UserLog from '../components/UserLog/UserLog';
+import Loader from '../components/Loader/Loader';
 
 export default function VotingPage() {
   const [image, setImage] = useState(null);
   const [logs, setLogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchNewImage = async () => {
     try {
+      setIsLoading(true);
       const res = await getRandomImageForVoting();
       setImage(res.data[0]);
     } catch (err) {
       console.error('Failed to load cat image', err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -25,7 +30,7 @@ export default function VotingPage() {
       const parsed = res.data.map((entry) => {
         let actionType = '';
         if (entry.value === 1) actionType = 'like';
-        else if (entry.value === 2) actionType = 'favourite-add';
+        else if (entry.value === 2) actionType = 'favourite';
         else if (entry.value === 3) actionType = 'dislike';
         return {
           timestamp: entry.created_at.slice(11, 16),
@@ -40,15 +45,20 @@ export default function VotingPage() {
   };
 
   useEffect(() => {
-    fetchNewImage();
-    fetchLogs();
+    const init = async () => {
+      setIsLoading(true);
+      await Promise.all([fetchNewImage(), fetchLogs()]);
+      setIsLoading(false);
+    };
+    init();
   }, []);
 
   const handleVote = async (value) => {
     if (!image) return;
+    setIsLoading(true);
     await voteForImage(image.id, value);
-    fetchNewImage();
-    fetchLogs();
+    await Promise.all([fetchNewImage(), fetchLogs()]);
+    setIsLoading(false);
   };
 
   return (
@@ -56,11 +66,17 @@ export default function VotingPage() {
       <Breadcrumbs />
       <div className={styles.candidateContainer}>
         <div className={styles.voteImageWrapper}>
-          <img
-            className={styles.candidateImage}
-            src={image?.url || 'src/images/candidate.webp'}
-            alt="Cat candidate"
-          />
+          {isLoading ? (
+            <Loader />
+          ) : (
+            image && (
+              <img
+                className={styles.candidateImage}
+                src={image.url}
+                alt="Cat candidate"
+              />
+            )
+          )}
         </div>
         <VoteButtons
           onLike={() => handleVote(1)}
@@ -69,9 +85,9 @@ export default function VotingPage() {
         />
       </div>
       <div className={styles.userActionLogs}>
-          {logs.map((log, index) => (
+          {logs.map((log) => (
             <UserLog
-              key={index}
+              key={`${log.imageId}-${log.timestamp}`}
               timestamp={log.timestamp}
               imageId={log.imageId}
               actionType={log.actionType}

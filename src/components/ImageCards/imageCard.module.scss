@@ -9,7 +9,7 @@
     text-decoration: none;
     border-radius: 20px;
     padding: 10px;
-    background-image: url("src/images/candidate.webp");
+    // background-image: url("/images/candidate.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -142,5 +142,47 @@
         .favToggle {
             opacity: 100%;
         }
+    }
+
+    // Grid Items Positioning
+    &:nth-child(10n + 1) {
+        grid-row-start: span 2;
+    }
+    &:nth-child(10n + 4) {
+        grid-column-start: span 2;
+        grid-row-start: span 2;
+    }
+    &:nth-child(10n + 8) {
+        grid-row-start: span 2;
+    }
+    &:nth-child(10n + 9) {
+        grid-column-start: span 2;
+        grid-row-start: span 2;
+    }
+
+    @include screen(mobile) {
+        height: 200px;
+    }
+}
+
+// Loader in favToggle
+.loader {
+            animation: loader-spinning 1.2s linear infinite;
+        }
+
+// Animation
+@keyframes loader-spinning {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// Dark theme
+:global(body[data-theme='dark']) {
+    .breedLabel {
+        background-color: $dark-gray;
     }
 }

@@ -7,7 +7,7 @@ export default function SearchButton() {
             className={styles.searchButton}
             to='/search'
         >
-            <img src="src/images/search-20.svg" alt="Search" />
+            <img src="/images/search-20.svg" alt="Search" />
         </Link>
     )
 }

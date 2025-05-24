@@ -13,6 +13,7 @@ export default function PageRoutes() {
     <Routes>
       <Route path="/voting" element={<VotingPage />} />
       <Route path="/breeds" element={<BreedsPage />} />
+      <Route path="/breeds/:breedId" element={<BreedInfoPage />} />
       <Route path="/gallery" element={<GalleryPage />} />
       <Route path="/breedInfo" element={<BreedInfoPage />} />
       <Route path="/search" element={<SearchResultsPage />} />

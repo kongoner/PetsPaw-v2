@@ -10,6 +10,11 @@
         right: 10px;
         transform: translateY(-50%);
         pointer-events: none;
+
+        &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
     }
 }
 
@@ -29,6 +34,11 @@
 
     &:focus {
         outline: 2px solid $full-pink;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
     }
 }
 

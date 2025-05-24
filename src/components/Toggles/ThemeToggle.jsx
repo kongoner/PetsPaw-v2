@@ -13,8 +13,8 @@ export default function ThemeToggle() {
               onChange={toggleTheme}
             />
             <label htmlFor="theme-switch" className={styles.toggleLabel}>
-              <img className={`${styles.icon} ${styles.eyeOpen}`} src="src/images/eye-opened.svg" />
-              <img className={`${styles.icon} ${styles.eyeClosed}`} src="src/images/eye-closed.svg"/>
+              <img className={`${styles.icon} ${styles.eyeOpen}`} src="/images/eye-opened.svg" />
+              <img className={`${styles.icon} ${styles.eyeClosed}`} src="/images/eye-closed.svg"/>
               <span className={styles.toggleThumb}></span>
             </label>
           </div>
