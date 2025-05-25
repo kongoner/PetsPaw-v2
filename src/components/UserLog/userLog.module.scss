@@ -2,50 +2,50 @@
 @use '../../styles/mixins' as *;
 
 .userAction {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 20px 15px 15px;
-    background-color: $light-gray;
-    border-radius: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+	padding: 15px 20px 15px 15px;
+	background-color: $light-gray;
+	border-radius: 20px;
 
-    @include screen(mobile) {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+	@include screen(mobile) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
 
 .timestamp {
-    padding: 3px 10px;
-    background-color: white;
-    border-radius: 5px;
+	padding: 3px 10px;
+	background-color: white;
+	border-radius: 5px;
 }
 
 .action {
-    flex: 1;
-    font-size: 20px;
-    font-weight: 400;
-    color: $full-gray;
+	flex: 1;
+	font-size: 20px;
+	font-weight: 400;
+	color: $full-gray;
 }
 
 .idHighlighted {
-    font-weight: 500;
-    color: black;
+	font-weight: 500;
+	color: black;
 }
 
 // Dark Theme
 :global(body[data-theme='dark']) {
-    .userAction {
-        background-color: $transparent-white-bg;
-    }
+	.userAction {
+		background-color: $transparent-white-bg;
+	}
 
-    .timestamp {
-        background-color: $dark-gray;
-    }
+	.timestamp {
+		background-color: $dark-gray;
+	}
 
-    .idHighlighted {
-        color: white;
-    }
+	.idHighlighted {
+		color: white;
+	}
 }

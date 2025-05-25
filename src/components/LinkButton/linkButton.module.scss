@@ -2,43 +2,47 @@
 @use '../../styles/mixins' as *;
 
 .linkButton {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 15px;
-    border-radius: 20px;
-    background-color: white;
-    transition: all 0.3s ease;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 15px;
+	border-radius: 20px;
+	background-color: white;
+	transition: all 0.3s ease;
 
-    &:hover {
-        background-color: $light-pink;
-    }
+	img {
+		transition: all 0.3s ease;
+	}
 
-    &.active {
-        background-color: $full-pink;
+	&:hover {
+		background-color: $light-pink;
+	}
 
-        img {
-            filter: brightness(10);
-        }
-    }
+	&.active {
+		background-color: $full-pink;
+
+		img {
+			filter: brightness(2);
+		}
+	}
 }
 
 // Dark Theme
 :global(body[data-theme='dark']) {
-    .linkButton {
-        background-color: $transparent-white-bg;
-        transition: all 0.3s ease;
+	.linkButton {
+		background-color: $transparent-white-bg;
+		transition: all 0.3s ease;
 
-        &:hover {
-            background-color: $transparent-pink;
-        }
+		&:hover {
+			background-color: $transparent-pink;
+		}
 
-        &.active {
-            background-color: $full-pink;
+		&.active {
+			background-color: $full-pink;
 
-            img {
-                filter: brightness(10);
-            }
-        }
-    }
+			img {
+				filter: brightness(2);
+			}
+		}
+	}
 }

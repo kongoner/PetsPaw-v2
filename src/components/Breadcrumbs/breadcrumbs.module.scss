@@ -2,47 +2,47 @@
 @use '../../styles/variables' as *;
 
 .breadcrumbs {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
 
-    @include screen(mobile) {
-        flex: 1;
-        flex-wrap: wrap;
-    }
+	@include screen(mobile) {
+		flex: 1;
+		flex-wrap: wrap;
+	}
 }
 
 .breadcrumbsItem {
-    text-align: center;
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: $full-pink;
-    background-color: $light-pink;
-    padding: 5px 30px;
-    border-radius: 10px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 500;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: $full-pink;
+	background-color: $light-pink;
+	padding: 5px 30px;
+	border-radius: 10px;
 
-    &.active {
-        background-color: $full-pink;
-        color: white;
-    }
+	&.active {
+		background-color: $full-pink;
+		color: white;
+	}
 
-    @include screen(mobile) {
-        flex: 1;
-    }
+	@include screen(mobile) {
+		flex: 1;
+	}
 }
 
 // Dark Theme
 :global(body[data-theme='dark']) {
-    .breadcrumbsItem {
-        color: $full-pink;
-        background-color: $transparent-pink;
+	.breadcrumbsItem {
+		color: $full-pink;
+		background-color: $transparent-pink;
 
-        &.active {
-            background-color: $full-pink;
-            color: white;
-        }
-    }
+		&.active {
+			background-color: $full-pink;
+			color: white;
+		}
+	}
 }

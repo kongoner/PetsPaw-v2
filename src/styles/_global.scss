@@ -7,96 +7,96 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: none;
-    font-family: 'Jost', sans-serif;
-    font-size: 16px;
-    line-height: 150%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+	font-family: 'Jost', sans-serif;
+	font-size: 16px;
+	line-height: 150%;
 }
 
 body {
-    width: 100%;
-    font-family: 'Jost', sans-serif;
-    font-size: 16px;
-    line-height: 150%;
-    background-color: $light-gray;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+	width: 100%;
+	font-family: 'Jost', sans-serif;
+	font-size: 16px;
+	line-height: 150%;
+	background-color: $light-gray;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
 }
 
 select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 select::-ms-expand {
-    display: none;
+	display: none;
 }
 
 // Typography
 h1 {
-    font-size: 44px;
-    font-weight: 500;
-    line-height: 58px;
+	font-size: 44px;
+	font-weight: 500;
+	line-height: 58px;
 }
 
 h2 {
-    font-size: 36px;
-    font-weight: 500;
+	font-size: 36px;
+	font-weight: 500;
 }
 
 h4 {
-    font-size: 16px;
-    font-weight: 500;
+	font-size: 16px;
+	font-weight: 500;
 }
 
 .subtitle {
-    font-size: 20px;
-    font-weight: 400;
-    color: #8C8C8C;
+	font-size: 20px;
+	font-weight: 400;
+	color: #8c8c8c;
 
-    &.bold {
-        font-weight: 500;
-        color: $dark-gray;
-    }
+	&.bold {
+		font-weight: 500;
+		color: $dark-gray;
+	}
 }
 
 .link-text {
-    color: $full-pink;
-    text-decoration: none;
+	color: $full-pink;
+	text-decoration: none;
 }
 
 // Layout
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 30px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 20px;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 30px;
 
-    @include screen(tablet) {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: stretch;
-    }
+	@include screen(tablet) {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch;
+	}
 
-    @include screen(mobile) {
-        padding: 20px;
-    }
+	@include screen(mobile) {
+		padding: 20px;
+	}
 }
 
 // Animations
 @keyframes loader-spinning {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }

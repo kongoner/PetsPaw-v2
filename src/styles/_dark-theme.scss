@@ -1,178 +1,177 @@
 @use './variables' as *;
 
-// Dark styles 
+// Dark styles
 body[data-theme='dark'] {
-    background-color: $dark-gray;
-    color: white;
+	background-color: $dark-gray;
+	color: white;
 
-    // Main section
+	// Main section
 
-    #logo {
-            content: url('/images/logo-light.svg');
-    }
+	#logo {
+		content: url('/images/logo-light.svg');
+	}
 
-    /////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////
 
-    // Voting page
+	// Voting page
 
-    .votingButtonsContainer {
-        background-color: #282828;
-        outline: 4px solid #282828;
-    }
+	.votingButtonsContainer {
+		background-color: #282828;
+		outline: 4px solid #282828;
+	}
 
-    .userAction {
-        background-color: $transparent-white-bg;
-    }
+	.userAction {
+		background-color: $transparent-white-bg;
+	}
 
-    .timestamp {
-        background-color: $dark-gray;
-    }
+	.timestamp {
+		background-color: $dark-gray;
+	}
 
-    /////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////
 
-    // Breeds page
+	// Breeds page
 
-    .dropdown {
-        background-color: $transparent-white-bg;
+	.dropdown {
+		background-color: $transparent-white-bg;
 
-        &:hover {
-            outline: 2px solid $transparent-pink;
-        }
+		&:hover {
+			outline: 2px solid $transparent-pink;
+		}
 
-        &:focus {
-            outline: 2px solid $full-pink;
-        }
-    }
+		&:focus {
+			outline: 2px solid $full-pink;
+		}
+	}
 
-    .order {
-        background-color: $transparent-white-bg;
+	.order {
+		background-color: $transparent-white-bg;
 
-        &:hover,
-        &.active {
-            outline: 2px solid $transparent-pink;
-        }
-    }
+		&:hover,
+		&.active {
+			outline: 2px solid $transparent-pink;
+		}
+	}
 
-    .breed-name {
-        background-color: $dark-gray;
-    }
+	.breed-name {
+		background-color: $dark-gray;
+	}
 
-    .pageButton {
-        background-color: $transparent-pink;
+	.pageButton {
+		background-color: $transparent-pink;
 
-        &:hover {
-            background-color: $full-pink;
-            color: white;
-        }
+		&:hover {
+			background-color: $full-pink;
+			color: white;
+		}
 
-        &.disabled {
-            background-color: $transparent-white-bg;
-        }
-    }
+		&.disabled {
+			background-color: $transparent-white-bg;
+		}
+	}
 
-    /////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////
 
-    // Breeds Info page
+	// Breeds Info page
 
-    .breedDescription {
-        outline: 2px solid $transparent-pink;
-    }
+	.breedDescription {
+		outline: 2px solid $transparent-pink;
+	}
 
-    .breedTitle {
-        background-color: #282828;
-    }
+	.breedTitle {
+		background-color: #282828;
+	}
 
-    /////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////
 
-    // Gallery page
+	// Gallery page
 
-    .uploadButton {
-        background-color: $transparent-pink;
-    }
+	.uploadButton {
+		background-color: $transparent-pink;
+	}
 
-    .filtersGallery {
-        background-color: $transparent-white-bg;
-    }
+	.filtersGallery {
+		background-color: $transparent-white-bg;
+	}
 
-    .dropdownLight {
-        background-color: $dark-gray;
-    }
+	.dropdownLight {
+		background-color: $dark-gray;
+	}
 
-    .buttonReload {
-        background-color: $dark-gray;
+	.buttonReload {
+		background-color: $dark-gray;
 
-        &:hover {
-            background-color: $transparent-pink;
-        }
-    }
+		&:hover {
+			background-color: $transparent-pink;
+		}
+	}
 
-    .buttonAddFavorites {
-        background-color: $dark-gray;
+	.buttonAddFavorites {
+		background-color: $dark-gray;
 
-        &:hover {
-            background-color: $full-pink;
-        }
-    }
+		&:hover {
+			background-color: $full-pink;
+		}
+	}
 
-    /////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////
 
-    // Upload page
+	// Upload page
 
-    .uploadPopup {
-        background-color: #282828;
-    }
+	.uploadPopup {
+		background-color: #282828;
+	}
 
-    .closeButton {
-        background-color: $transparent-white-bg;
+	.closeButton {
+		background-color: $transparent-white-bg;
 
-        &:hover {
-            background-color: $transparent-pink;
-        }
-    }
+		&:hover {
+			background-color: $transparent-pink;
+		}
+	}
 
-    .uploadArea {
-        border: 2px dashed $transparent-pink;
-        background-color: $transparent-white-bg;
+	.uploadArea {
+		border: 2px dashed $transparent-pink;
+		background-color: $transparent-white-bg;
 
-        &.active {
-            background-color: $transparent-pink;
-            border: 2px dashed $full-pink;
-        }
+		&.active {
+			background-color: $transparent-pink;
+			border: 2px dashed $full-pink;
+		}
 
-        &.errorArea {
-            background-color: $transparent-pink;
-            border: 2px dashed $full-pink;
-        }
-    }
+		&.errorArea {
+			background-color: $transparent-pink;
+			border: 2px dashed $full-pink;
+		}
+	}
 
-    .uploadFileButton {
+	.uploadFileButton {
+		&:hover {
+			background-color: $transparent-pink;
+			color: $full-pink;
+		}
 
-        &:hover {
-            background-color: $transparent-pink;
-            color: $full-pink;
-        }
+		&.disabled {
+			background-color: $transparent-white-bg;
+			color: $full-gray;
+		}
+	}
 
-        &.disabled {
-            background-color: $transparent-white-bg;
-            color: $full-gray;
-        }
-    }
+	.uploadMessage {
+		background-color: $transparent-white-bg;
+	}
 
-    .uploadMessage {
-        background-color: $transparent-white-bg;
-    }
+	/////////////////////////////////////////////////////////////////
 
-    /////////////////////////////////////////////////////////////////
+	// Search result page
 
-    // Search result page
+	.nothingFoundMessage {
+		background-color: $transparent-white-bg;
+	}
 
-    .nothingFoundMessage {
-        background-color: $transparent-white-bg;
-    }
-
-    .subtitle {
-        &.bold {
-            color: white;
-        }
-    }
+	.subtitle {
+		&.bold {
+			color: white;
+		}
+	}
 }

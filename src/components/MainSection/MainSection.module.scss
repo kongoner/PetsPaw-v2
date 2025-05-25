@@ -2,65 +2,64 @@
 @use '../../styles/mixins' as *;
 
 .mainSection {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 60px;
-    flex-wrap: wrap;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 60px;
+	flex-wrap: wrap;
 
-    @include screen(tablet) {
-        position: relative;
-    }
+	@include screen(tablet) {
+		position: relative;
+	}
 
-    @include screen(mobile) {
-        width: 100%;
-    }
+	@include screen(mobile) {
+		width: 100%;
+	}
 }
 
 .mainHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
 }
 
-
 .greeting {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
 }
 
 .navigation {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 16px;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 16px;
 
-    @include screen(mobile) {
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-    }
+	@include screen(mobile) {
+		width: 100%;
+		flex-direction: column;
+		align-items: stretch;
+	}
 }
 
 // Cards
 .voting {
-    img {
-        background-color: $full-violet;
-    }
+	img {
+		background-color: $full-violet;
+	}
 }
 
 .breeds {
-    img {
-        background-color: $full-green;
-    }
+	img {
+		background-color: $full-green;
+	}
 }
 
 .gallery {
-    img {
-        background-color: $full-yellow;
-    }
+	img {
+		background-color: $full-yellow;
+	}
 }

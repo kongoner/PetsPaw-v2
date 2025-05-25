@@ -1,0 +1,219 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.uploadWrapper {
+	display: flex;
+	justify-content: flex-end;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+	background-color: rgba(0, 0, 0, 0.6);
+	text-align: center;
+	z-index: 9999;
+}
+
+.uploadPopup {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	max-width: 680px;
+	padding: 100px 20px 20px 20px;
+	background-color: $light-gray;
+	border-radius: 20px;
+	overflow-y: auto;
+}
+
+.btnClose {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	border-radius: 10px;
+	padding: 10px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+
+	img {
+		transition: all 0.3s ease;
+	}
+
+	&:hover {
+		background-color: $full-pink;
+
+		img {
+			filter: brightness(2);
+		}
+	}
+}
+
+.uploadHeader {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 10px;
+}
+
+.uploadArea {
+	width: 100%;
+	height: 320px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 40px;
+	border-radius: 20px;
+	border: 2px dashed $light-pink;
+	background-color: white;
+	overflow: hidden;
+	cursor: pointer;
+	background-image: url(images/upload-bg.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	p {
+		display: block;
+	}
+
+	&.active {
+		background-color: rgba(251, 224, 220, 0.4);
+		border: 2px dashed $full-pink;
+	}
+
+	&.error-area {
+		background-color: $light-pink;
+		border: 2px dashed $full-pink;
+	}
+}
+
+.uploadedImagePreview {
+	height: 100%;
+	border-radius: 10px;
+	object-fit: contain;
+}
+
+.btnUploadFile {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 30px;
+	background-color: $full-pink;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: 500;
+	color: white;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.3s ease;
+
+	img {
+		display: none;
+	}
+
+	&:hover {
+		background-color: $light-pink;
+		color: $full-pink;
+	}
+
+	&:active {
+		background-color: $full-pink;
+		color: white;
+	}
+
+	&.loading {
+		cursor: wait;
+
+		img {
+			display: block;
+			animation: loader-spinning 1.2s linear infinite;
+		}
+
+		&:hover {
+			background-color: $full-pink;
+			color: white;
+		}
+	}
+
+	&.disabled {
+		background-color: #d5d5d5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+}
+
+.uploadMessage {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+	padding: 18px 20px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+// Animation
+@keyframes loader-spinning {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+// Dark Theme
+:global(body[data-theme='dark']) {
+	.uploadPopup {
+		background-color: #282828;
+	}
+
+	.btnClose {
+		background-color: $transparent-white-bg;
+
+		&:hover {
+			background-color: $transparent-pink;
+		}
+	}
+
+	.uploadArea {
+		border: 2px dashed $transparent-pink;
+		background-color: $transparent-white-bg;
+
+		&.active {
+			background-color: $transparent-pink;
+			border: 2px dashed $full-pink;
+		}
+
+		&.error-area {
+			background-color: $transparent-pink;
+			border: 2px dashed $full-pink;
+		}
+	}
+
+	.btnUploadFile {
+		&:hover {
+			background-color: $transparent-pink;
+			color: $full-pink;
+		}
+
+		&.disabled {
+			background-color: $transparent-white-bg;
+			color: $full-gray;
+		}
+	}
+
+	.uploadMessage {
+		background-color: $transparent-white-bg;
+	}
+}

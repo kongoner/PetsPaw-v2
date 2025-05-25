@@ -1,0 +1,27 @@
+@use '../../../styles/variables' as *;
+
+.reloadButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	background-color: white;
+	border-radius: 10px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $light-pink;
+	}
+}
+
+// Dark Theme
+:global(body[data-theme='dark']) {
+	.reloadButton {
+		background-color: $dark-gray;
+
+		&:hover {
+			background-color: $transparent-pink;
+		}
+	}
+}

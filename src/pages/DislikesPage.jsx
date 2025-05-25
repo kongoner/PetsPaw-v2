@@ -8,64 +8,64 @@ import UserLog from '../components/UserLog/UserLog';
 import { getVotesByType } from '../api/logs';
 
 export default function DislikesPage() {
-    const [images, setImages] = useState([]);
-    const [logs, setLogs] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+	const [images, setImages] = useState([]);
+	const [logs, setLogs] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        const fetchLikes = async () => {
-            setIsLoading(true);
-            try {
-                const votes = await getVotesByType(3); // 1 = dislike
-                const uniqueImages = votes.map(v => ({
-                    id: v.image_id,
-                    url: v.image?.url,
-                    created_at: v.created_at
-                }));
-                setImages(uniqueImages);
+	useEffect(() => {
+		const fetchLikes = async () => {
+			setIsLoading(true);
+			try {
+				const votes = await getVotesByType(3); // 1 = dislike
+				const uniqueImages = votes.map((v) => ({
+					id: v.image_id,
+					url: v.image?.url,
+					created_at: v.created_at,
+				}));
+				setImages(uniqueImages);
 
-                const parsedLogs = uniqueImages.map((img) => ({
-                    timestamp: img.created_at.slice(11, 16),
-                    imageId: img.id,
-                    actionType: 'dislike'
-                }));
-                setLogs(parsedLogs);
-            } catch (err) {
-                console.error('Failed to load disliked images or logs', err);
-            } finally {
-                setIsLoading(false);
-            }
-        };
+				const parsedLogs = uniqueImages.map((img) => ({
+					timestamp: img.created_at.slice(11, 16),
+					imageId: img.id,
+					actionType: 'dislike',
+				}));
+				setLogs(parsedLogs);
+			} catch (err) {
+				console.error('Failed to load disliked images or logs', err);
+			} finally {
+				setIsLoading(false);
+			}
+		};
 
-        fetchLikes();
-    }, []);
+		fetchLikes();
+	}, []);
 
-    return (
-            <div className={styles.page}>
-                <Breadcrumbs />
-                {isLoading ? (
-                    <Loader />
-                ) : images.length === 0 ? (
-                    <p className={styles.nothingFound}>No item found</p>
-                ) : (
-                    <>
-                        <ImageGrid>
-                            {images.map((img) => (
-                                <BasicCard key={img.id} imageUrl={img.url} />
-                            ))}
-                        </ImageGrid>
-                        <div className={styles.userActionLogs}>
-                            {logs.map((log) => (
-                                <UserLog
-                                    key={`${log.imageId}-${log.timestamp}`}
-                                    timestamp={log.timestamp}
-                                    imageId={log.imageId}
-                                    actionType={log.actionType}
-                                />
-                            ))}
-                        </div>
-                    </>
-                )}
-            </div>
-        );
-    }
+	return (
+		<div className={styles.page}>
+			<Breadcrumbs />
+			{isLoading ? (
+				<Loader />
+			) : images.length === 0 ? (
+				<p className={styles.nothingFound}>No item found</p>
+			) : (
+				<>
+					<ImageGrid>
+						{images.map((img) => (
+							<BasicCard key={img.id} imageUrl={img.url} />
+						))}
+					</ImageGrid>
+					<div className={styles.userActionLogs}>
+						{logs.map((log) => (
+							<UserLog
+								key={`${log.imageId}-${log.timestamp}`}
+								timestamp={log.timestamp}
+								imageId={log.imageId}
+								actionType={log.actionType}
+							/>
+						))}
+					</div>
+				</>
+			)}
+		</div>
+	);
+}

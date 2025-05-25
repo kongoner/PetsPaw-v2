@@ -1,68 +1,67 @@
 @use '../../../styles/variables' as *;
 
 .voteButtonsContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 4px;
-    margin-top: -42px;
-    border-radius: 20px;
-    background-color: white;
-    outline: 4px solid white;
-    overflow: hidden
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	gap: 4px;
+	margin-top: -42px;
+	border-radius: 20px;
+	background-color: white;
+	outline: 4px solid white;
+	overflow: hidden;
 }
 
 .voteButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
-    transition: all 0.3s ease;;
-    border: none;
-    cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 25px;
+	transition: all 0.3s ease;
+	border: none;
+	cursor: pointer;
 
-    &.like {
-        background-color: $full-green;
-    }
+	&.like {
+		background-color: $full-green;
+	}
 
-    &.favourite {
-        background-color: $full-pink;
-    }
+	&.favourite {
+		background-color: $full-pink;
+	}
 
-    &.dislike {
-        background-color: $full-yellow;
-    }
+	&.dislike {
+		background-color: $full-yellow;
+	}
 
-    &:hover {
-        &.like {
-            background-color: $light-green;
-        }
-        &.favourite {
-            background-color: $light-pink;
-        }
-        &.dislike {
-            background-color: $light-yellow;
-        }
-    }
+	&:hover {
+		&.like {
+			background-color: $light-green;
+		}
+		&.favourite {
+			background-color: $light-pink;
+		}
+		&.dislike {
+			background-color: $light-yellow;
+		}
+	}
 
-    &:active {
-
-        &.like {
-            background-color: $full-green;
-        }
-        &.favourite {
-            background-color: $full-pink;
-        }
-        &.dislike {
-            background-color: $full-yellow;
-        }
-    }
+	&:active {
+		&.like {
+			background-color: $full-green;
+		}
+		&.favourite {
+			background-color: $full-pink;
+		}
+		&.dislike {
+			background-color: $full-yellow;
+		}
+	}
 }
 
 // Dark theme
 :global(body[data-theme='dark']) {
-    .voteButtonsContainer {
-        background-color: #282828;
-        outline: 4px solid #282828;
-    }
+	.voteButtonsContainer {
+		background-color: #282828;
+		outline: 4px solid #282828;
+	}
 }

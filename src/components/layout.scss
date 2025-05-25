@@ -3,66 +3,66 @@
 
 // Layout
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 30px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 20px;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 30px;
 
-    @include screen(tablet) {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: stretch;
-    }
+	@include screen(tablet) {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch;
+	}
 
-    @include screen(mobile) {
-        padding: 20px;
-    }
+	@include screen(mobile) {
+		padding: 20px;
+	}
 }
 
 .contentLeft {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    width: 50%;
-    max-width: 680px;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	width: 50%;
+	max-width: 680px;
 
-    @include screen(tablet) {
-        width: 100%;
-        max-width: none;
-    }
+	@include screen(tablet) {
+		width: 100%;
+		max-width: none;
+	}
 }
 
 .contentRight {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: 10px;
-    width: 50%;
-    max-width: 680px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+	gap: 10px;
+	width: 50%;
+	max-width: 680px;
 
-    @include screen(tablet) {
-        width: 100%;
-        max-width: none;
-    }
+	@include screen(tablet) {
+		width: 100%;
+		max-width: none;
+	}
 }
 
 .heroImage {
-    display: block;
-    max-width: 680px;
-    height: auto;
+	display: block;
+	max-width: 680px;
+	height: auto;
 
-    @include screen(tablet) {
-        display: none !important;
-    }
+	@include screen(tablet) {
+		display: none !important;
+	}
 }
 
 .hideOnTablet {
-    @include screen(tablet) {
-        display: none;
-    }
+	@include screen(tablet) {
+		display: none;
+	}
 }
