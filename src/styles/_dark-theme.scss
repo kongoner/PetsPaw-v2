@@ -5,14 +5,6 @@ body[data-theme='dark'] {
 	background-color: $dark-gray;
 	color: white;
 
-	// Main section
-
-	#logo {
-		content: url('./images/logo-light.svg');
-	}
-
-	/////////////////////////////////////////////////////////////////
-
 	// Voting page
 
 	.votingButtonsContainer {

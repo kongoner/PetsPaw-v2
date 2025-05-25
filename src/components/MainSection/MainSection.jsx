@@ -2,17 +2,22 @@ import ThemeToggle from '../Toggles/ThemeToggle';
 import NavigationCard from '../NavigationCard/NavigationCard';
 import styles from './mainSection.module.scss';
 import { Link } from 'react-router-dom';
+import useThemeListener from '../../hooks/useThemeListener';
 
 export default function MainSection() {
+	// Use custom hook for theme detection
+	const isDarkMode = useThemeListener();
+
+	// Determine logo source based on theme
+	const logoImg = isDarkMode
+		? `${import.meta.env.BASE_URL}images/logo-light.svg`
+		: `${import.meta.env.BASE_URL}images/logo.svg`;
+
 	return (
 		<div className={styles.mainSection}>
 			<div className={styles.mainHeader}>
 				<Link to='/' className={styles.logo} data-link>
-					<img
-						id='logo'
-						src={`${import.meta.env.BASE_URL}images/logo.svg`}
-						alt='PetsPaw Logo'
-					/>
+					<img id='logo' src={logoImg} alt='PetsPaw Logo' />
 				</Link>
 				<ThemeToggle />
 			</div>
