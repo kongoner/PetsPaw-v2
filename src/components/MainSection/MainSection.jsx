@@ -38,7 +38,7 @@ export default function MainSection() {
 				<NavigationCard
 					toPath='/gallery'
 					name='Gallery'
-					imageUrl={`${import.meta.env.BASE_URL}images./images-search`}
+					imageUrl={`${import.meta.env.BASE_URL}images/images-search`}
 					className={styles.gallery}
 				/>
 			</nav>
