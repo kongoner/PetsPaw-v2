@@ -7,7 +7,10 @@ export default function UploadPopup({ onClose }) {
 		<div className={styles.uploadWrapper}>
 			<div className={styles.uploadPopup}>
 				<button className={styles.btnClose} onClick={onClose}>
-					<img src='./images/close-20.svg' alt='Close' />
+					<img
+						src={`${import.meta.env.BASE_URL}images/close-20.svg`}
+						alt='Close'
+					/>
 				</button>
 				<UploadForm />
 				<UploadMessage />

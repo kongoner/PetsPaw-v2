@@ -15,11 +15,11 @@ export default function Layout() {
 
 	// Determine hero image source based on theme
 	const hero1x = isDarkMode
-		? './images/girl-and-pet-light@1x.webp'
-		: './images/girl-and-pet@1x.webp';
+		? `${import.meta.env.BASE_URL}images/girl-and-pet-light@1x.webp`
+		: `${import.meta.env.BASE_URL}images/girl-and-pet@1x.webp`;
 	const hero2x = isDarkMode
-		? './images/girl-and-pet-light@2x.webp'
-		: './images/girl-and-pet@2x.webp';
+		? `${import.meta.env.BASE_URL}images/girl-and-pet-light@2x.webp`
+		: `${import.meta.env.BASE_URL}images/girl-and-pet@2x.webp`;
 
 	// Layout container with conditional content
 	return (

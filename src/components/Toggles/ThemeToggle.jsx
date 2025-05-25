@@ -15,11 +15,11 @@ export default function ThemeToggle() {
 			<label htmlFor='theme-switch' className={styles.toggleLabel}>
 				<img
 					className={`${styles.icon} ${styles.eyeOpen}`}
-					src='./images/eye-opened.svg'
+					src={`${import.meta.env.BASE_URL}images/eye-opened.svg`}
 				/>
 				<img
 					className={`${styles.icon} ${styles.eyeClosed}`}
-					src='./images/eye-closed.svg'
+					src={`${import.meta.env.BASE_URL}images/eye-closed.svg`}
 				/>
 				<span className={styles.toggleThumb}></span>
 			</label>

@@ -4,7 +4,7 @@ export default function Loader() {
 	return (
 		<img
 			className={styles.loader}
-			src='./images/loader-100.svg'
+			src={`${import.meta.env.BASE_URL}images/loader-100.svg`}
 			alt='Loading'
 		/>
 	);

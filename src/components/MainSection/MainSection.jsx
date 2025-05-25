@@ -8,7 +8,11 @@ export default function MainSection() {
 		<div className={styles.mainSection}>
 			<div className={styles.mainHeader}>
 				<Link to='/' className={styles.logo} data-link>
-					<img id='logo' src='./images/logo.svg' alt='PetsPaw Logo' />
+					<img
+						id='logo'
+						src={`${import.meta.env.BASE_URL}images/logo.svg`}
+						alt='PetsPaw Logo'
+					/>
 				</Link>
 				<ThemeToggle />
 			</div>
@@ -22,19 +26,19 @@ export default function MainSection() {
 				<NavigationCard
 					toPath='/voting'
 					name='Voting'
-					imageUrl='./images/vote-table'
+					imageUrl={`${import.meta.env.BASE_URL}images/vote-table`}
 					className={styles.voting}
 				/>
 				<NavigationCard
 					toPath='/breeds'
 					name='Breeds'
-					imageUrl='./images/pet-breeds'
+					imageUrl={`${import.meta.env.BASE_URL}images/pet-breeds`}
 					className={styles.breeds}
 				/>
 				<NavigationCard
 					toPath='/gallery'
 					name='Gallery'
-					imageUrl='./images./images-search'
+					imageUrl={`${import.meta.env.BASE_URL}images./images-search`}
 					className={styles.gallery}
 				/>
 			</nav>

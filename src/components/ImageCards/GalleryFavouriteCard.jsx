@@ -56,13 +56,15 @@ export default function GalleryFavouriteCard({ imageId, imageUrl }) {
 				{isToggling ? (
 					<img
 						className={styles.loader}
-						src='./images/loader-20.svg'
+						src={`${import.meta.env.BASE_URL}images/loader-20.svg`}
 						alt='Loading'
 					/>
 				) : (
 					<img
 						src={
-							isFavourite ? './images/fav-color-20.svg' : './images/fav-20.svg'
+							isFavourite
+								? `${import.meta.env.BASE_URL}images/fav-color-20.svg`
+								: `${import.meta.env.BASE_URL}images/fav-20.svg`
 						}
 						alt='Toggle favourite'
 					/>

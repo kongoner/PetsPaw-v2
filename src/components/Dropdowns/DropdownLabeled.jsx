@@ -23,7 +23,10 @@ export default function dropdownLabeled({
 				>
 					{children}
 				</select>
-				<img src='images/dropdown-12.svg' alt='Dropdown Arrow' />
+				<img
+					src={`${import.meta.env.BASE_URL}images/dropdown-12.svg`}
+					alt='Dropdown Arrow'
+				/>
 			</div>
 		</div>
 	);

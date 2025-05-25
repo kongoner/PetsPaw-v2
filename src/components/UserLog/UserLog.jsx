@@ -7,15 +7,15 @@ export default function UserLog({ timestamp, imageId, actionType }) {
 	switch (actionType) {
 		case 'like':
 			actionText = 'was added to Likes';
-			iconSrc = './images/like-color-20.svg';
+			iconSrc = `${import.meta.env.BASE_URL}images/like-color-20.svg`;
 			break;
 		case 'favourite':
 			actionText = 'was added to Favourites';
-			iconSrc = './images/fav-20.svg';
+			iconSrc = `${import.meta.env.BASE_URL}images/fav-20.svg`;
 			break;
 		case 'dislike':
 			actionText = 'was added to Dislikes';
-			iconSrc = './images/dislike-color-20.svg';
+			iconSrc = `${import.meta.env.BASE_URL}images/dislike-color-20.svg`;
 			break;
 		default:
 			break;

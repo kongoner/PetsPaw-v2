@@ -86,7 +86,10 @@ export default function UploadForm() {
 				disabled={!file || isLoading}
 				onClick={handleUpload}
 			>
-				<img src='images/loading-white-16.svg' alt='Loading' />
+				<img
+					src={`${import.meta.env.BASE_URL}images/loading-white-16.svg`}
+					alt='Loading'
+				/>
 				UPLOAD PHOTO
 			</button>
 			{uploadStatus && <UploadMessage status={uploadStatus} />}

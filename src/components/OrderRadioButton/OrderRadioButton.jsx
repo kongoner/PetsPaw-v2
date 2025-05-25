@@ -18,7 +18,10 @@ export default function OrderRadioButton({ value, onChange, disabled }) {
 					hidden
 					disabled={disabled}
 				/>
-				<img src='./images/sort-revert-color-20.svg' alt='Sort Ascending' />
+				<img
+					src={`${import.meta.env.BASE_URL}images/sort-revert-color-20.svg`}
+					alt='Sort Ascending'
+				/>
 			</label>
 			<label
 				className={`${styles.order} ${value === 'DESC' ? styles.active : ''} ${disabled ? styles.disabled : ''}`}
@@ -31,7 +34,10 @@ export default function OrderRadioButton({ value, onChange, disabled }) {
 					hidden
 					disabled={disabled}
 				/>
-				<img src='./images/sort-color-20.svg' alt='Sort Descending' />
+				<img
+					src={`${import.meta.env.BASE_URL}images/sort-color-20.svg`}
+					alt='Sort Descending'
+				/>
 			</label>
 		</div>
 	);
