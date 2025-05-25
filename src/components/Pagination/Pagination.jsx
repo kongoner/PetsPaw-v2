@@ -20,7 +20,7 @@ export default function Pagination({ page, setPage, totalPages }) {
 				onClick={() => handlePageChange(page - 1)}
 				disabled={page === 0}
 			>
-				<img src='/images/back-20.svg' alt='Previous Page' />
+				<img src='./images/back-20.svg' alt='Previous Page' />
 				Prev
 			</button>
 			<button
@@ -29,7 +29,7 @@ export default function Pagination({ page, setPage, totalPages }) {
 				disabled={isNextDisabled}
 			>
 				Next
-				<img src='/images/forward-20.svg' alt='Next Page' />
+				<img src='./images/forward-20.svg' alt='Next Page' />
 			</button>
 		</div>
 	);

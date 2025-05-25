@@ -56,13 +56,13 @@ export default function GalleryFavouriteCard({ imageId, imageUrl }) {
 				{isToggling ? (
 					<img
 						className={styles.loader}
-						src='/images/loader-20.svg'
+						src='./images/loader-20.svg'
 						alt='Loading'
 					/>
 				) : (
 					<img
 						src={
-							isFavourite ? '/images/fav-color-20.svg' : '/images/fav-20.svg'
+							isFavourite ? './images/fav-color-20.svg' : './images/fav-20.svg'
 						}
 						alt='Toggle favourite'
 					/>

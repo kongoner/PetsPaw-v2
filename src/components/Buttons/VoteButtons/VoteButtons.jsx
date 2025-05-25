@@ -7,19 +7,19 @@ export default function VoteButtons({ onLike, onFavourite, onDislike }) {
 				className={`${styles.voteButton} ${styles.like}`}
 				onClick={onLike}
 			>
-				<img src='/images/like-white-30.svg' alt='Like' />
+				<img src='./images/like-white-30.svg' alt='Like' />
 			</button>
 			<button
 				className={`${styles.voteButton} ${styles.favourite}`}
 				onClick={onFavourite}
 			>
-				<img src='/images/fav-white-30.svg' alt='Favourite' />
+				<img src='./images/fav-white-30.svg' alt='Favourite' />
 			</button>
 			<button
 				className={`${styles.voteButton} ${styles.dislike}`}
 				onClick={onDislike}
 			>
-				<img src='/images/dislike-white-30.svg' alt='Dislike' />
+				<img src='./images/dislike-white-30.svg' alt='Dislike' />
 			</button>
 		</div>
 	);

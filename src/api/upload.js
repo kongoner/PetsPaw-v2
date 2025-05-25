@@ -7,5 +7,5 @@ export const uploadImage = (file) => {
 	formData.append('file', file);
 	formData.append('sub_id', USER_SUB_ID);
 
-	return api.post('/images/upload', formData);
+	return api.post('./images/upload', formData);
 };

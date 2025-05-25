@@ -8,8 +8,8 @@ export default function UploadMessage({ status }) {
 			<img
 				src={
 					status === 'success'
-						? '/images/success-20.svg'
-						: '/images/error-20.svg'
+						? './images/success-20.svg'
+						: './images/error-20.svg'
 				}
 				alt={status}
 			/>

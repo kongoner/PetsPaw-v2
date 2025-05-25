@@ -14,7 +14,7 @@ export default function Dropdown({ id, alt, onChange, disabled, children }) {
 			</select>
 			<img
 				className={`${disabled ? styles.disabled : ''}`}
-				src='/images/dropdown-12.svg'
+				src='./images/dropdown-12.svg'
 				alt='Dropdown arrow'
 			/>
 		</div>

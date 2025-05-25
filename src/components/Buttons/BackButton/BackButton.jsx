@@ -5,7 +5,7 @@ export default function BackButton() {
 	const navigate = useNavigate();
 	return (
 		<button className={styles.backButton} onClick={() => navigate(-1)}>
-			<img src='/images/back-20.svg' alt='Back' />
+			<img src='./images/back-20.svg' alt='Back' />
 		</button>
 	);
 }

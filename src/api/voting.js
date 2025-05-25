@@ -11,6 +11,6 @@ export const voteForImage = (image_id, value) =>
 
 // Gets a single random image for voting
 export const getRandomImageForVoting = () =>
-	api.get('/images/search', {
+	api.get('./images/search', {
 		params: { limit: 1, size: 'full' },
 	});
