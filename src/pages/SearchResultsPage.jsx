@@ -9,26 +9,31 @@ import ImageGrid from '../components/ImageGrid/ImageGrid';
 
 export default function SearchResultsPage() {
 	const [searchParams] = useSearchParams();
+	const query = searchParams.get('query') || '';
 	const [filteredBreeds, setFilteredBreeds] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const navigate = useNavigate();
-	const query = searchParams.get('query') || '';
 
 	useEffect(() => {
-		const fetchBreeds = async () => {
+		const fetchMatchingBreeds = async () => {
 			setIsLoading(true);
 			try {
 				const res = await getAllBreeds();
-				const matched = res.data.filter(
-					(b) =>
-						b.name.toLowerCase().includes(query.toLowerCase()) && b.image?.url,
+
+				// Filter breeds that include the search query and have an image
+				const matchedBreeds = res.data.filter(
+					({ name, image }) =>
+						name.toLowerCase().includes(query.toLowerCase()) && image?.url,
 				);
-				const cards = matched.map((b) => ({
-					id: b.id,
-					url: b.image.url,
-					name: b.name,
+
+				// Map to simplified card structure
+				const filtered = matchedBreeds.map(({ id, name, image }) => ({
+					id,
+					name,
+					url: image.url,
 				}));
-				setFilteredBreeds(cards);
+
+				setFilteredBreeds(filtered);
 			} catch (err) {
 				console.error('Failed to fetch breeds', err);
 			} finally {
@@ -37,7 +42,7 @@ export default function SearchResultsPage() {
 		};
 
 		if (query.trim()) {
-			fetchBreeds();
+			fetchMatchingBreeds();
 		}
 	}, [query]);
 
@@ -52,12 +57,12 @@ export default function SearchResultsPage() {
 				<Loader />
 			) : filteredBreeds.length > 0 ? (
 				<ImageGrid>
-					{filteredBreeds.map((breed) => (
+					{filteredBreeds.map(({ id, url, name }) => (
 						<BreedCard
-							key={breed.id}
-							imageUrl={breed.url}
-							breedName={breed.name}
-							onClick={() => navigate(`/breeds/${breed.id}`)}
+							key={id}
+							imageUrl={url}
+							breedName={name}
+							onClick={() => navigate(`/breeds/${id}`)}
 						/>
 					))}
 				</ImageGrid>

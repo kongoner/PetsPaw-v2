@@ -13,23 +13,32 @@ export default function FavouritesPage() {
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
-		const fetchLikes = async () => {
+		const fetchFavourites = async () => {
 			setIsLoading(true);
 			try {
-				const votes = await getVotesByType(2); // 2 = favourites
-				const uniqueImages = votes.map((v) => ({
-					id: v.image_id,
-					url: v.image?.url,
-					created_at: v.created_at,
-				}));
-				setImages(uniqueImages);
+				const votes = await getVotesByType(2); // 2 = favourite
+				if (!votes.length) return setImages([]);
 
-				const parsedLogs = uniqueImages.map((img) => ({
-					timestamp: img.created_at.slice(11, 16),
-					imageId: img.id,
-					actionType: 'favourite',
-				}));
-				setLogs(parsedLogs);
+				// Extract favourite image data
+				const favouriteImages = votes.map(
+					({ image_id, image, created_at }) => ({
+						id: image_id,
+						url: image?.url,
+						created_at,
+					}),
+				);
+
+				// Prepare logs for the last 5 actions
+				const logsData = favouriteImages
+					.slice(-5)
+					.map(({ id, created_at }) => ({
+						timestamp: created_at.slice(11, 16),
+						imageId: id,
+						actionType: 'favourite',
+					}));
+
+				setImages(favouriteImages);
+				setLogs(logsData);
 			} catch (err) {
 				console.error('Failed to load favourite images or logs', err);
 			} finally {
@@ -37,7 +46,7 @@ export default function FavouritesPage() {
 			}
 		};
 
-		fetchLikes();
+		fetchFavourites();
 	}, []);
 
 	return (
@@ -49,22 +58,21 @@ export default function FavouritesPage() {
 				<p className={styles.nothingFound}>No item found</p>
 			) : (
 				<>
+					{/* Render favourite images in a grid */}
 					<ImageGrid>
-						{images.map((img) => (
-							<GalleryFavouriteCard
-								key={img.id}
-								imageId={img.id}
-								imageUrl={img.url}
-							/>
+						{images.map(({ id, url }) => (
+							<GalleryFavouriteCard key={id} imageId={id} imageUrl={url} />
 						))}
 					</ImageGrid>
+
+					{/* Render logs for favourite actions */}
 					<div className={styles.userActionLogs}>
-						{logs.map((log) => (
+						{logs.map(({ timestamp, imageId, actionType }) => (
 							<UserLog
-								key={`${log.imageId}-${log.timestamp}`}
-								timestamp={log.timestamp}
-								imageId={log.imageId}
-								actionType={log.actionType}
+								key={`${imageId}-${timestamp}`}
+								timestamp={timestamp}
+								imageId={imageId}
+								actionType={actionType}
 							/>
 						))}
 					</div>

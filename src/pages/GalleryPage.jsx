@@ -13,7 +13,7 @@ import Loader from '../components/Loader/Loader';
 import UploadPopup from '../components/Upload/UploadPopup';
 
 export default function GalleryPage() {
-	const [breeds, setBreeds] = useState([]); // Breeds list for dropdown
+	const [breeds, setBreeds] = useState([]);
 	const [images, setImages] = useState([]);
 	const [filters, setFilters] = useState({
 		breed_ids: null,
@@ -27,6 +27,7 @@ export default function GalleryPage() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [showUploadPopup, setShowUploadPopup] = useState(false);
 
+	// Load breed list for dropdown
 	useEffect(() => {
 		const fetchBreeds = async () => {
 			try {
@@ -40,6 +41,7 @@ export default function GalleryPage() {
 		fetchBreeds();
 	}, []);
 
+	// Load gallery images whenever filters or page changes
 	useEffect(() => {
 		const fetchImages = async () => {
 			setIsLoading(true);
@@ -48,19 +50,21 @@ export default function GalleryPage() {
 				const params = { breed_ids, limit, order, page, mime_types };
 				const res = await getGalleryImages(params);
 
-				const cards = res.data.map((image) => ({
-					id: image.id,
-					url: image.url,
+				const galleryImages = res.data.map((img) => ({
+					id: img.id,
+					url: img.url,
 				}));
 
-				setImages(cards);
+				setImages(galleryImages);
+
+				// Update total pages based on header
 				if (res.headers['pagination-count']) {
 					const totalCount = parseInt(res.headers['pagination-count'], 10);
 					const pageCount = Math.ceil(totalCount / limit);
 					setTotalPages(pageCount);
 				}
 			} catch (err) {
-				console.error('Failed to load breed images', err);
+				console.error('Failed to load gallery images', err);
 			} finally {
 				setIsLoading(false);
 			}
@@ -69,48 +73,57 @@ export default function GalleryPage() {
 		fetchImages();
 	}, [filters, page]);
 
+	// Handlers to stage filters before applying
+	const handleStagedFilterChange = (key, value) => {
+		setStagedFilters((prev) => ({
+			...prev,
+			[key]: value,
+		}));
+	};
+
+	const handleReload = () => {
+		setFilters(stagedFilters);
+		setPage(0);
+	};
+
 	return (
 		<div className={styles.page}>
 			<div className={styles.toolsGallery}>
 				<Breadcrumbs />
 				<UploadButton onClick={() => setShowUploadPopup(true)} />
 			</div>
+
+			{/* Filter dropdowns */}
 			<div className={styles.filtersGallery}>
 				<DropdownLabeled
 					label='Order'
 					alt='Order selector'
-					onChange={(e) => {
-						setStagedFilters((prev) => ({ ...prev, order: e.target.value }));
-					}}
+					onChange={(e) => handleStagedFilterChange('order', e.target.value)}
 				>
 					<option value='ASC'>Ascending</option>
 					<option value='DESC'>Descending</option>
 				</DropdownLabeled>
+
 				<DropdownLabeled
 					label='Image type'
 					alt='Image type selector'
 					disabled={stagedFilters.breed_ids}
-					onChange={(e) => {
-						setStagedFilters((prev) => ({
-							...prev,
-							mime_types: e.target.value,
-						}));
-					}}
+					onChange={(e) =>
+						handleStagedFilterChange('mime_types', e.target.value)
+					}
 				>
 					<option value=''>All</option>
 					<option value='jpg,png'>Static</option>
 					<option value='gif'>Animated</option>
 				</DropdownLabeled>
+
 				<DropdownLabeled
 					label='Breed'
 					alt='Breed selector'
 					disabled={stagedFilters.mime_types === 'gif'}
-					onChange={(e) => {
-						setStagedFilters((prev) => ({
-							...prev,
-							breed_ids: e.target.value,
-						}));
-					}}
+					onChange={(e) =>
+						handleStagedFilterChange('breed_ids', e.target.value)
+					}
 				>
 					<option value=''>All breeds</option>
 					{breeds.map((breed) => (
@@ -119,46 +132,39 @@ export default function GalleryPage() {
 						</option>
 					))}
 				</DropdownLabeled>
+
 				<div className={styles.dropdownWithReload}>
 					<DropdownLabeled
 						label='Limit'
 						alt='Limit selector'
-						onChange={(e) => {
-							setStagedFilters((prev) => ({
-								...prev,
-								limit: Number(e.target.value),
-							}));
-						}}
+						onChange={(e) =>
+							handleStagedFilterChange('limit', Number(e.target.value))
+						}
 					>
 						<option value='5'>5 items per page</option>
 						<option value='10'>10 items per page</option>
 						<option value='15'>15 items per page</option>
 						<option value='20'>20 items per page</option>
 					</DropdownLabeled>
-					<ReloadButton
-						onClick={() => {
-							setFilters(stagedFilters);
-							setPage(0);
-						}}
-					/>
+					<ReloadButton onClick={handleReload} />
 				</div>
 			</div>
+
+			{/* Image results */}
 			{isLoading ? (
 				<Loader />
 			) : (
 				<div className={styles.gridWrapper}>
 					<ImageGrid>
-						{images.map((img) => (
-							<GalleryFavouriteCard
-								key={img.id}
-								imageUrl={img.url}
-								imageId={img.id}
-							/>
+						{images.map(({ id, url }) => (
+							<GalleryFavouriteCard key={id} imageUrl={url} imageId={id} />
 						))}
 					</ImageGrid>
 					<Pagination page={page} setPage={setPage} totalPages={totalPages} />
 				</div>
 			)}
+
+			{/* Upload modal */}
 			{showUploadPopup && (
 				<UploadPopup onClose={() => setShowUploadPopup(false)} />
 			)}

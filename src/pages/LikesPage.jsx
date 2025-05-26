@@ -17,19 +17,23 @@ export default function LikesPage() {
 			setIsLoading(true);
 			try {
 				const votes = await getVotesByType(1); // 1 = like
-				const uniqueImages = votes.map((v) => ({
-					id: v.image_id,
-					url: v.image?.url,
-					created_at: v.created_at,
-				}));
-				setImages(uniqueImages);
+				if (!votes.length) return setImages([]);
 
-				const parsedLogs = uniqueImages.map((img) => ({
-					timestamp: img.created_at.slice(11, 16),
-					imageId: img.id,
+				// Extract unique image data and format logs
+				const likedImages = votes.map(({ image_id, image, created_at }) => ({
+					id: image_id,
+					url: image?.url,
+					created_at,
+				}));
+
+				const logsData = likedImages.slice(-5).map(({ id, created_at }) => ({
+					timestamp: created_at.slice(11, 16),
+					imageId: id,
 					actionType: 'like',
 				}));
-				setLogs(parsedLogs);
+
+				setImages(likedImages);
+				setLogs(logsData);
 			} catch (err) {
 				console.error('Failed to load liked images or logs', err);
 			} finally {
@@ -49,18 +53,21 @@ export default function LikesPage() {
 				<p className={styles.nothingFound}>No item found</p>
 			) : (
 				<>
+					{/* Render liked images in a grid */}
 					<ImageGrid>
-						{images.map((img) => (
-							<BasicCard key={img.id} imageUrl={img.url} />
+						{images.map(({ id, url }) => (
+							<BasicCard key={id} imageUrl={url} />
 						))}
 					</ImageGrid>
+
+					{/* Render logs for user actions */}
 					<div className={styles.userActionLogs}>
-						{logs.map((log) => (
+						{logs.map(({ timestamp, imageId, actionType }) => (
 							<UserLog
-								key={`${log.imageId}-${log.timestamp}`}
-								timestamp={log.timestamp}
-								imageId={log.imageId}
-								actionType={log.actionType}
+								key={`${imageId}-${timestamp}`}
+								timestamp={timestamp}
+								imageId={imageId}
+								actionType={actionType}
 							/>
 						))}
 					</div>
